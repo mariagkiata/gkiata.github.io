@@ -1,0 +1,267 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Room</title>
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    #instructions {
+      position: fixed; 
+      top: 20px; 
+      transform: translateX(-50%); 
+      z-index: 10;
+      left: 50%;
+      background: rgba(0, 0, 0, 0.75); 
+      color: white;
+      padding: 15px 25px; 
+      border-radius: 12px;
+      text-align: center; 
+      font-size: 16px;
+      pointer-events: none; 
+    } 
+  </style> 
+</head>
+
+  <body>
+
+    <div id="instructions">
+      <strong>EMOTION ROOM</strong><br> 
+      Click on a color to experience an emotion. 
+    </div>
+
+    <a-scene>
+
+      <a-entity id="cameraRig">
+        <a-camera 
+          position="0 1.6 5" 
+          look-controls 
+          cursor="rayOrigin: mouse">
+          </a-camera> 
+      </a-entity>
+      
+      <a-light 
+        type="ambient" 
+        color="#ffffff" 
+        intensity="0.7"> 
+      </a-light>
+      <a-light 
+        id="mainLight" 
+        type="point" 
+        position="0 4 2" 
+        intensity="1.5" 
+        distance="15"> 
+      </a-light>
+
+      <!-- Floor --> 
+      <a-plane 
+        position="0 0 0" 
+        rotation="-90 0 0" 
+        width="10" 
+        height="10" 
+        color="#222222"> 
+      </a-plane>
+      <!-- Back wall --> 
+      <a-plane 
+        position="0 3 -3" 
+        width="10" 
+        height="6" 
+        color="#eeeeee"> 
+      </a-plane>
+      <!-- Left wall --> 
+      <a-plane position="-5 3 0" 
+        rotation="0 90 0" 
+        width="6" 
+        height="10" 
+        color="#dddddd"> 
+      </a-plane>
+      <!-- Right wall --> 
+      <a-plane 
+        position="5 3 0" 
+        rotation="0 -90 0" 
+        width="6" 
+        height="10" 
+        color="#dddddd"> 
+      </a-plane>
+      <!-- Ceiling --> 
+      <a-plane 
+        position="0 6 0" 
+        rotation="90 0 0" 
+        width="10" 
+        height="10" 
+        color="#eeeeee"> 
+      </a-plane>
+
+      <a-text 
+        value="EMOTION ROOM" 
+        position="0 4.8 -2.9" 
+        align="center" 
+        color="#222222" 
+        width="5"> 
+      </a-text>
+      
+      <a-box 
+        id="anger" 
+        class="emotion" 
+        position="-3 1.5 -2" 
+        width="1.4" 
+        height="1.4" 
+        depth="1.4" 
+        color="#e53935"
+        animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
+        animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+        </a-box>
+        <a-text 
+          value="ANGER" 
+          position="-3 0.45 -2" 
+          align="center" 
+          color="#ffffff" 
+          width="2.5"> 
+        </a-text>
+
+      <a-box 
+        id="sadness" 
+        class="emotion" 
+        position="-1.5 1.5 -2" 
+        width="1.4" 
+        height="1.4" 
+        depth="1.4" 
+        color="#2196f3"
+        animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
+        animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 7000; easing: linear"> 
+      </a-box>
+      <a-text 
+        value="SADNESS" 
+        position="-1.5 0.45 -2" 
+        align="center" 
+        color="#ffffff" 
+        width="2.5"> 
+      </a-text>
+
+      <a-box 
+        id="joy" 
+        class="emotion" 
+        position="0 1.5 -2" 
+        width="1.4" 
+        height="1.4" 
+        depth="1.4"
+        color="#fdd835" 
+        animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
+        animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear"> 
+      </a-box>
+      <a-text 
+        value="JOY" 
+        position="0 0.45 -2" 
+        align="center" 
+        color="#ffffff" 
+        width="2.5"> 
+      </a-text>
+
+      <a-box 
+        id="disgust" 
+        class="emotion" 
+        position="1.5 1.5 -2" 
+        width="1.4" 
+        height="1.4" 
+        depth="1.4" 
+        color="#43a047"
+        animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
+        animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"> 
+      </a-box>
+      <a-text 
+        value="DISGUST" 
+        position="1.5 0.45 -2" 
+        align="center" 
+        color="#ffffff" 
+        width="2.5"> 
+      </a-text>
+
+      <a-box 
+        id="fear" 
+        class="emotion" 
+        position="3 1.5 -2" 
+        width="1.4" 
+        height="1.4" 
+        depth="1.4" 
+        color="#8e44ad"
+        animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
+        animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 5500; easing: linear"> 
+      </a-box>
+      <a-text 
+        value="FEAR" 
+        position="3 0.45 -2" 
+        align="center" 
+        color="#ffffff" 
+        width="2.5"> 
+      </a-text>
+
+      <a-text 
+        id="emotionText" 
+        value="Choose an emotion" 
+        position="0 3.5 -2.9" 
+        align="center" 
+        color="#222222" 
+        width="5"> 
+      </a-text>
+      <script> 
+        const scene = document.querySelector("a-scene");
+        const emotionText = document.querySelector("#emotionText");
+        const mainLight = document.querySelector("#mainLight");
+        const emotions = { 
+          anger: { 
+            name: "ANGER", 
+            description: "Anger is intense, energetic and powerful.", 
+            color: "#e53935" 
+          },
+          sadness: { 
+            name: "SADNESS", 
+            description: "Sadness is quiet, slow and introspective.", 
+            color: "#2196f3" 
+          },
+          joy: { 
+            name: "JOY", 
+            description: "Joy is bright, energetic and positive.", 
+            color: "#fdd835" 
+          },
+          disgust: { 
+            name: "DISGUST", 
+            description: "Disgust creates a feeling of rejection and discomfort.", 
+            color: "#43a047" 
+          },
+          ear: { 
+            name: "FEAR", 
+            description: "Fear creates tension, uncertainty and alertness.", 
+            color: "#8e44ad" 
+          } 
+        };
+
+        Object.keys(emotions).forEach(function(id) {
+          const object = document.querySelector("#" + id);
+          object.addEventListener("click", function() {
+            const emotion = emotions[id];
+            emotionText.setAttribute( "value", emotion.name + " — " + emotion.description );
+            scene.setAttribute( "background", "color: " + emotion.color );
+            mainLight.setAttribute( "color", emotion.color );
+            document.querySelectorAll(".emotion") 
+              .forEach(function(item) {
+                item.setAttribute( "scale", "1 1 1" );
+                });
+            object.setAttribute( "scale", "1.3 1.3 1.3" );
+            }); 
+        });
+        </script> 
+    </a-scene> 
+  </body> 
+</html>
