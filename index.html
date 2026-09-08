@@ -37,7 +37,9 @@
       Click on a color to experience an emotion. 
     </div>
 
-    <a-scene>
+    <a-scene
+    cursor="rayOrigin: mouse"
+    raycaster="objects: .emotion">
 
       <a-entity id="cameraRig">
         <a-camera 
