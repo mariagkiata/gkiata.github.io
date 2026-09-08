@@ -58,7 +58,8 @@
         type="point" 
         position="0 4 2" 
         intensity="1.5" 
-        distance="15"> 
+        distance="15"
+        animation="property: light.intensity; dir: alternate; dur: 1200; loop: true; to: 2.2">
       </a-light>
 
       <!-- Floor --> 
@@ -118,7 +119,8 @@
         color="#e53935"
         animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
         animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
-        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear"
+        animation__float="property: position; dir: alternate; dur: 1500; loop: true; to: -3 1.7 -2">
         </a-box>
         <a-text 
           value="ANGER" 
@@ -138,7 +140,8 @@
         color="#2196f3"
         animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
         animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
-        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 7000; easing: linear"> 
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 7000; easing: linear"
+        animation__float="property: position; dir: alternate; dur: 1500; loop: true; to: -1.5 1.7 -2">
       </a-box>
       <a-text 
         value="SADNESS" 
@@ -158,7 +161,8 @@
         color="#fdd835" 
         animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
         animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
-        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear"> 
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear"
+        animation__float="property: position; dir: alternate; dur: 1500; loop: true; to: 0 1.7 -2">
       </a-box>
       <a-text 
         value="JOY" 
@@ -178,7 +182,8 @@
         color="#43a047"
         animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
         animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
-        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"> 
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"
+        animation__float="property: position; dir: alternate; dur: 1500; loop: true; to: 1.5 1.7 -2">
       </a-box>
       <a-text 
         value="DISGUST" 
@@ -198,7 +203,8 @@
         color="#8e44ad"
         animation__mouseenter="property: scale; to: 1.15 1.15 1.15; dur: 200"
         animation__mouseleave="property: scale; to: 1 1 1; dur: 200"
-        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 5500; easing: linear"> 
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 5500; easing: linear"
+        animation__float="property: position; dir: alternate; dur: 1500; loop: true; to: 3 1.7 -2">
       </a-box>
       <a-text 
         value="FEAR" 
@@ -253,6 +259,7 @@
           object.addEventListener("click", function() {
             const emotion = emotions[id];
             emotionText.setAttribute( "value", emotion.name + " — " + emotion.description );
+            emotionText.setAttribute("color", emotion.color);
             scene.setAttribute( "background", "color: " + emotion.color );
             mainLight.setAttribute( "color", emotion.color );
             document.querySelectorAll(".emotion") 
