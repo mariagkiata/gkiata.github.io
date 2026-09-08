@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Emotion Room</title>
   <!-- A-Frame -->
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js">
-  
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+  <script>
   const sounds = {
   anger: new Audio("anger.mp3"),
   sadness: new Audio("sadness.mp3"),
@@ -13,7 +14,11 @@
   disgust: new Audio("disgust.mp3"),
   fear: new Audio("fear.mp3")
 };
+     const scene = document.querySelector("a-scene");
+  const emotionText = document.querySelector("#emotionText");
+  const mainLight = document.querySelector("#mainLight");
   </script>
+
   
   <style>
     
