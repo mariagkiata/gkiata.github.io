@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <title>Emotion Room</title>
   <!-- A-Frame -->
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js">
+  
+  const sounds = {
+  anger: new Audio("anger.mp3"),
+  sadness: new Audio("sadness.mp3"),
+  joy: new Audio("joy.mp3"),
+  disgust: new Audio("disgust.mp3"),
+  fear: new Audio("fear.mp3")
+};
+  </script>
   
   <style>
     
@@ -61,14 +70,6 @@
         distance="15"
         animation="property: light.intensity; dir: alternate; dur: 1200; loop: true; to: 2.2">
       </a-light>
-
-      const sounds = {
-  anger: new Audio("anger.mp3"),
-  sadness: new Audio("sadness.mp3"),
-  joy: new Audio("joy.mp3"),
-  disgust: new Audio("disgust.mp3"),
-  fear: new Audio("fear.mp3")
-};
 
       <!-- Floor --> 
       <a-plane 
